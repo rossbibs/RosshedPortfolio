@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rosshed Joseph L. Bibon - Full Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+    color: #222;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  section {
+    opacity: 0;
+    transform: translateY(30px) !important;
+  }
+
+  section.animate {
+    animation: fadeInUp 0.6s ease-out forwards !important;
+  }
+
+  /* Home section is visible by default */
+  section#home {
+    opacity: 1;
+    transform: translateY(0) !important;
+  }
+
+  section.delay-1.animate { animation-delay: 0s; }
+  section.delay-2.animate { animation-delay: 0s; }
+  section.delay-3.animate { animation-delay: 0s; }
+  section.delay-4.animate { animation-delay: 0s; }
+
+  /* NAV */
+  nav {
+    background: #fff;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    position: sticky; top: 0; z-index: 10;
+    animation: slideDown 0.5s ease-out;
+  }
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .logo { font-size: 1.2rem; font-weight: 700; color: #1a56db; cursor: pointer; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #1a56db;
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover {
+    color: #1a56db;
+  }
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  .nav-links a.active-link {
+    color: #1a56db;
+  }
+  .nav-links a.active-link::after {
+    width: 100%;
+  }
+
+  /* HERO */
+  .hero {
+    background: #fff;
+    padding: 70px 40px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 40px auto;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+  .hero-photo {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: #e8f0fe;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem; color: #1a56db;
+    border: 4px solid #1a56db;
+    overflow: hidden;
+  }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .badge {
+    display: inline-block;
+    background: #e8f0fe;
+    color: #1a56db;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.2; margin-bottom: 8px; color: #111; }
+  .hero h1 span { color: #1a56db; }
+  .hero p { color: #666; font-size: 0.95rem; line-height: 1.7; max-width: 420px; margin-bottom: 24px; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.2s;
+    display: inline-block;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn-blue { background: #1a56db; color: #fff; }
+  .btn-outline { background: transparent; border: 2px solid #1a56db; color: #1a56db; }
+
+  /* INFO CARDS ROW */
+  .info-row {
+    display: flex; gap: 16px;
+    max-width: 1000px; margin: 0 auto 40px;
+    padding: 0 40px;
+  }
+  .info-card {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+  .info-card .label { font-size: 0.72rem; color: #999; font-weight: 500; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .info-card .value { font-size: 1.05rem; font-weight: 600; color: #222; }
+
+  /* SECTION */
+  section { max-width: 1000px; margin: 0 auto 40px; padding: 0 40px; }
+  .section-title {
+    font-size: 1.4rem; font-weight: 700; color: #111;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: #eee; }
+
+  /* ABOUT */
+  .about-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    color: #555; font-size: 0.95rem; line-height: 1.8;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .skill-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .skill-name { font-size: 0.9rem; font-weight: 600; color: #222; margin-bottom: 10px; }
+  .skill-bar { background: #f0f0f0; border-radius: 99px; height: 8px; }
+  .skill-fill { height: 8px; border-radius: 99px; background: #1a56db; }
+  .skill-pct { font-size: 0.75rem; color: #999; margin-top: 6px; text-align: right; }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .project-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-top: 3px solid #1a56db;
+    transition: transform 0.2s;
+  }
+  .project-card:hover { transform: translateY(-4px); }
+  .project-num { font-size: 0.7rem; color: #1a56db; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 10px; }
+  .project-title { font-size: 1.05rem; font-weight: 700; color: #111; margin-bottom: 10px; }
+  .project-desc { font-size: 0.875rem; color: #666; line-height: 1.7; margin-bottom: 16px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: #e8f0fe; color: #1a56db;
+    font-size: 0.7rem; font-weight: 600;
+    padding: 3px 10px; border-radius: 20px;
+  }
+
+  /* CONTACT */
+  .contact-box {
+    background: #1a56db;
+    border-radius: 16px;
+    padding: 48px 40px;
+    text-align: center;
+    color: #fff;
+  }
+  /* SECTION STYLING */
+  section[id] { scroll-margin-top: 80px; }
+
+  /* ABOUT SECTION */
+  .page-header {
+    max-width: 1000px;
+    margin: 50px auto 60px;
+    padding: 0 40px;
+  }
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 12px;
+  }
+  .page-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  .about-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    color: #555; font-size: 0.95rem; line-height: 1.8;
+  }
+
+  .skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 768px) {
+    .skills-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  .skill-category {
+    background: linear-gradient(135deg, #f8fbff 0%, #fff 100%);
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid #e8f0fe;
+  }
+  .skill-category-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a56db;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .skill-category-title::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #1a56db;
+    border-radius: 50%;
+  }
+  .skill-item {
+    margin-bottom: 24px;
+  }
+  .skill-item:last-child {
+    margin-bottom: 0;
+  }
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .skill-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111;
+  }
+  .skill-level {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1a56db;
+    background: #e8f0fe;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .skill-bar {
+    background: #e8f0fe;
+    border-radius: 99px;
+    height: 8px;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 8px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #1a56db 0%, #4f82f7 100%);
+    transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .education-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .education-card {
+    background: linear-gradient(135deg, #fff 0%, #f8fbff 100%);
+    border-radius: 14px;
+    padding: 28px;
+    border-left: 4px solid #1a56db;
+    box-shadow: 0 2px 12px rgba(26, 86, 219, 0.06);
+    transition: all 0.3s ease;
+  }
+  .education-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 20px rgba(26, 86, 219, 0.1);
+  }
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .edu-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111;
+  }
+  .edu-date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1a56db;
+    background: #e8f0fe;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .edu-institution {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .edu-description {
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  /* PROJECTS SECTION */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .project-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-top: 3px solid #1a56db;
+    transition: transform 0.2s;
+  }
+  .project-card:hover { transform: translateY(-4px); }
+  .project-num { font-size: 0.7rem; color: #1a56db; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 10px; }
+  .project-title { font-size: 1.05rem; font-weight: 700; color: #111; margin-bottom: 10px; }
+  .project-desc { font-size: 0.875rem; color: #666; line-height: 1.7; margin-bottom: 16px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: #e8f0fe; color: #1a56db;
+    font-size: 0.7rem; font-weight: 600;
+    padding: 3px 10px; border-radius: 20px;
+  }
+
+  /* CERTIFICATIONS SECTION */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .cert-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+  }
+  .cert-card:hover { transform: translateY(-4px); }
+  .cert-image {
+    width: 100%;
+    height: 160px;
+    background: #e8f0fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .cert-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cert-body {
+    padding: 20px;
+  }
+  .cert-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .cert-date {
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: 500;
+  }
+
+  /* CONTACT SECTION */
+  .contact-hero {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .contact-hero h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #111 0%, #1a56db 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .contact-hero p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .cta-btn {
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cta-btn.primary {
+    background: #1a56db;
+    color: #fff;
+  }
+  .cta-btn.primary:hover {
+    background: #1446ba;
+    box-shadow: 0 8px 20px rgba(26, 86, 219, 0.3);
+    transform: translateY(-2px);
+  }
+  .cta-btn.secondary {
+    background: #e8f0fe;
+    color: #1a56db;
+    border: 2px solid #1a56db;
+  }
+  .cta-btn.secondary:hover {
+    background: #1a56db;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+  .contact-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    border: 2px solid #f0f0f0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  .contact-card:hover {
+    border-color: #1a56db;
+    box-shadow: 0 12px 32px rgba(26, 86, 219, 0.15);
+    transform: translateY(-6px);
+  }
+  .card-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a56db 0%, #1446ba 100%);
+    border-radius: 12px;
+    margin: 0 auto 20px;
+  }
+  .card-icon svg {
+    color: #fff;
+    width: 28px;
+    height: 28px;
+  }
+  .card-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #999;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .card-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 16px;
+    word-break: break-word;
+  }
+  .card-action {
+    color: #1a56db;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-action:hover {
+    color: #1446ba;
+    transform: translateX(4px);
+  }
+
+  .social-section {
+    text-align: center;
+    padding: 48px 40px;
+    background: linear-gradient(135deg, #f8fbff 0%, #fff 100%);
+    border-radius: 16px;
+    border: 2px solid #e8f0fe;
+    margin-bottom: 60px;
+  }
+  .social-section h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 24px;
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .social-link {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 2px solid #e8f0fe;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .social-link:hover {
+    background: #1a56db;
+    border-color: #1a56db;
+    transform: translateY(-4px);
+  }
+  .social-link svg {
+    width: 20px;
+    height: 20px;
+    color: #1a56db;
+    transition: color 0.3s ease;
+  }
+  .social-link:hover svg {
+    color: #fff;
+  }
+
+  .form-section h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 8px;
+  }
+  .form-section p {
+    color: #666;
+    margin-bottom: 32px;
+    font-size: 0.95rem;
+  }
+  .contact-form {
+    background: #fff;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #1a56db;
+    box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+  .form-submit {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .submit-btn {
+    flex: 1;
+    padding: 14px 32px;
+    background: #1a56db;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .submit-btn:hover {
+    background: #1446ba;
+    box-shadow: 0 8px 20px rgba(26, 86, 219, 0.3);
+    transform: translateY(-2px);
+  }
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+
+  .contact-box h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; }
+  .contact-box p { opacity: 0.85; margin-bottom: 28px; font-size: 0.95rem; }
+  .contact-details { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .contact-item .c-label { font-size: 0.72rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .contact-item .c-value { font-weight: 600; font-size: 0.95rem; }
+
+  footer {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+    color: #fff;
+    padding: 40px 60px;
+    margin-top: 60px;
+    position: relative;
+  }
+  .footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  /* Profile section - left */
+  .footer-profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  .footer-avatar {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #fff;
+  }
+  .footer-profile-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .footer-profile-info p {
+    margin: 4px 0 0 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Social icons - center */
+  .footer-socials-center {
+    display: flex;
+    gap: 16px;
+    flex: 1;
+    justify-content: center;
+  }
+  .footer-social-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .footer-social-icon:hover {
+    background: rgba(124, 58, 237, 0.2);
+    border-color: rgba(124, 58, 237, 0.4);
+  }
+  .footer-social-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Copyright and credit - right */
+  .footer-credit {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .footer-credit p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .footer-credit-text {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 4px;
+  }
+  
+  /* Scroll to top button */
+  .scroll-to-top {
+    position: absolute;
+    right: 60px;
+    bottom: 40px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+    animation: floatUp 3s ease-in-out infinite;
+  }
+  @keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .scroll-to-top:hover {
+    transform: translateY(-4px) scale(1.12);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.6);
+    animation: none;
+  }
+  .scroll-to-top:active {
+    transform: translateY(-2px) scale(1.08);
+  }
+  .scroll-to-top svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+  }
+
+  @media (max-width: 768px) {
+    footer {
+      padding: 30px 20px 60px;
+    }
+    .footer-content {
+      flex-direction: column;
+      gap: 24px;
+    }
+    .footer-profile {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+    .footer-profile-info {
+      text-align: left;
+    }
+    .footer-socials-center {
+      width: 100%;
+    }
+    .footer-credit {
+      width: 100%;
+      text-align: center;
+    }
+    .scroll-to-top {
+      right: 50%;
+      transform: translateX(50%);
+      bottom: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    footer {
+      padding: 40px 20px 24px;
+    }
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <img src="assets/images/logo.png" alt="Logo" style="height: 24px; width: auto;">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home" class="nav-link active-link">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#projects" class="nav-link">Projects</a></li>
+    <li><a href="#certifications" class="nav-link">Certifications</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="home">
+  <div style="max-width:1000px; margin: 40px auto 0; padding: 0 40px;">
+    <div class="hero">
+      <div class="hero-photo">
+        <img src="assets/images/profile.png" alt="Rosshed Joseph L. Bibon">
+      </div>
+      <div>
+        <div class="badge">BCPET Student · 2026</div>
+        <h1>Rosshed Joseph<br><span>L. Bibon</span></h1>
+        <p>A passionate Computer Engineering Technology student building useful things with code and hardware. Currently in Section BCPET 2201.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn-blue">View Projects</a>
+          <a href="assets/BIBON, ROSSHED JOSEPH L. CV.pdf" download="BIBON, ROSSHED JOSEPH L. CV.pdf" class="btn btn-outline">Download CV</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO ROW -->
+  <div class="info-row">
+    <div class="info-card">
+      <div class="label">Age</div>
+      <div class="value">21 years old</div>
+    </div>
+    <div class="info-card">
+      <div class="label">Birthday</div>
+      <div class="value">February 08, 2005</div>
+    </div>
+    <div class="info-card">
+      <div class="label">Section</div>
+      <div class="value">BCPET 2201</div>
+    </div>
+    <div class="info-card">
+      <div class="label">Program</div>
+      <div class="value">Comp. Eng. Technology</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="animate">
+  <div class="page-header">
+    <h2 class="page-title">About Me</h2>
+    <p class="page-subtitle">Learn more about my background, experience, and skills</p>
+  </div>
+
+  <div class="section-title" style="margin-top: 40px;">Who I Am</div>
+  <div class="about-box">
+    <p>
+      I'm a passionate Computer Engineering Technology student at Batangas State University Lipa, dedicated to building innovative solutions through programming, hardware design, and emerging technologies. With a strong foundation in both software and electronics, I approach problems with a creative mindset and a commitment to excellence.
+    </p>
+    <p>
+      Currently pursuing my Bachelor's degree in BCPET 2201, I've developed expertise across multiple domains including web development, embedded systems, database management, and UI/UX design. I believe in continuous learning and staying updated with industry trends to deliver cutting-edge solutions.
+    </p>
+    <p>
+      When I'm not coding or tinkering with electronics, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with fellow aspiring engineers. My goal is to create meaningful projects that make a positive impact.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section id="skills" class="animate">
+  <div class="section-title">Skills & Expertise</div>
+  <div class="skills-container">
+    <!-- Technical Skills -->
+    <div class="skill-category">
+      <div class="skill-category-title">Technical Skills</div>
+      
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-name">Programming</div>
+          <div class="skill-level">Advanced</div>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-name">Web Development</div>
+          <div class="skill-level">Intermediate</div>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-name">Embedded Systems</div>
+          <div class="skill-level">Intermediate</div>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-name">Databases</div>
+          <div class="skill-level">Intermediate</div>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+      </div>
+    </div>
+
+    <!-- Design & Tools -->
+    <div class="skill-category">
+      <div class="skill-category-title">Design & Tools</div>
+      
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-name">UI/UX Design</div>
+          <div class="skill-level">Intermediate</div>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-name">Microcontrollers</div>
+          <div class="skill-level">Intermediate</div>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-name">Circuit Design</div>
+          <div class="skill-level">Intermediate</div>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-header">
+          <div class="skill-name">Project Management</div>
+          <div class="skill-level">Beginner</div>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section-title" style="margin-top: 60px;">Education & Background</div>
+  <div class="education-grid">
+    <div class="education-card">
+      <div class="edu-header">
+        <div>
+          <div class="edu-title">Bachelor in Computer Engineering Technology</div>
+          <div class="edu-institution">Batangas State University Lipa</div>
+        </div>
+        <div class="edu-date">2022 - Present</div>
+      </div>
+      <div class="edu-description">Currently in BCPET 2201, focusing on innovative solutions through programming, hardware design, and emerging technologies.</div>
+    </div>
+
+    <div class="education-card">
+      <div class="edu-header">
+        <div>
+          <div class="edu-title">Senior High School</div>
+          <div class="edu-institution">Holy Family Academy</div>
+        </div>
+        <div class="edu-date">2020 - 2022</div>
+      </div>
+      <div class="edu-description">Specialized in STEM, developed capstone research project on assistive technology and IoT systems.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects" class="animate">
+  <div class="page-header">
+    <h2 class="page-title">My Projects</h2>
+    <p class="page-subtitle">Explore my latest work and creations</p>
+  </div>
+
+  <div class="section-title" style="margin-top: 40px;">Featured Projects</div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <img src="assets/images/project1.jpg" alt="Personal Portfolio Website" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+      <div class="project-num">PROJECT 01</div>
+      <div class="project-title">Personal Portfolio Website</div>
+      <p class="project-desc">A fully responsive personal portfolio website showcasing projects, skills, and personal information. Designed with a clean, professional aesthetic and smooth interactions featuring smooth page transitions and animated section reveals.</p>
+      <div class="tags">
+        <span class="tag">Web Dev</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">JavaScript</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="assets/images/project2.jpg" alt="Assistive Prototype AI Alcohol Sensing & Car Engine Locking System" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+      <div class="project-num">PROJECT 02</div>
+      <div class="project-title">Assistive Prototype AI Alcohol Sensing & Car Engine Locking System</div>
+      <p class="project-desc">A capstone research project developed at Holy Family Academy for the prevention of Driving Under the Influence (DUI) cases in Padre Garcia, Batangas. The system uses an MQ-3 alcohol sensor and an Arduino Uno R3 Atmega328 microcontroller to detect blood alcohol concentration via breath proximity. When alcohol is detected, a buzzer and red LED activate and the hobby gearmotor (simulating the car engine) automatically locks.</p>
+      <div class="tags">
+        <span class="tag">Arduino</span>
+        <span class="tag">C++</span>
+        <span class="tag">MQ-3 Sensor</span>
+        <span class="tag">IoT</span>
+        <span class="tag">AI</span>
+        <span class="tag">STEM Research</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS SECTION -->
+<section id="certifications" class="animate">
+  <div class="page-header">
+    <h2 class="page-title">Certifications</h2>
+    <p class="page-subtitle">Professional credentials and training completed</p>
+  </div>
+
+  <div class="section-title" style="margin-top: 40px;">My Certifications</div>
+  <div class="cert-grid">
+    <!-- Certificate 1 -->
+    <div class="cert-card">
+      <div class="cert-image">
+        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a56db 0%, #4f82f7 100%); color: #fff; font-size: 3rem; font-weight: 700;">
+          I-OSH
+        </div>
+      </div>
+      <div class="cert-body">
+        <div class="cert-name">I-OSH Mentor Safety Training Center Certification</div>
+        <div class="cert-date">July 10, 2025</div>
+      </div>
+    </div>
+
+    <!-- Certificate 2 -->
+    <div class="cert-card">
+      <div class="cert-image">
+        <img src="assets/images/cert-cisco-network.jpg" alt="Cisco Academy - Network Addressing and Basic Troubleshooting">
+      </div>
+      <div class="cert-body">
+        <div class="cert-name">Cisco Academy - Network Addressing and Basic Troubleshooting</div>
+        <div class="cert-date">2026</div>
+      </div>
+    </div>
+
+    <!-- Certificate 3 -->
+    <div class="cert-card">
+      <div class="cert-image">
+        <img src="assets/images/cert-cisco-network2.jpg" alt="Cisco Academy - Certificate of Course Completion">
+      </div>
+      <div class="cert-body">
+        <div class="cert-name">Cisco Academy - Certificate of Course Completion</div>
+        <div class="cert-date">2026</div>
+      </div>
+    </div>
+
+    <!-- Certificate 4 -->
+    <div class="cert-card">
+      <div class="cert-image">
+        <img src="assets/images/cert-cisco-packet-tracer.jpg" alt="Getting Started with Cisco Packet Tracer">
+      </div>
+      <div class="cert-body">
+        <div class="cert-name">Getting Started with Cisco Packet Tracer</div>
+        <div class="cert-date">February 27, 2026</div>
+      </div>
+    </div>
+
+    <!-- Certificate 5 -->
+    <div class="cert-card">
+      <div class="cert-image">
+        <img src="assets/images/cert-tesda-css.jpg" alt="TESDA Certificate - Introduction to CSS">
+      </div>
+      <div class="cert-body">
+        <div class="cert-name">TESDA Certificate - Introduction to CSS</div>
+        <div class="cert-date">March 7, 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="animate">
+  <div class="page-header">
+    <div class="contact-hero">
+      <h2>Let's Connect</h2>
+      <p>I'm always open to new opportunities, collaborations, and interesting conversations. Reach out through any of these channels.</p>
+      <div class="cta-buttons">
+        <a href="mailto:rosshedj@gmail.com" class="cta-btn primary">
+          <span>📧</span> Send Email
+        </a>
+        <a href="tel:+639497975297" class="cta-btn secondary">
+          <span>📱</span> Call Me
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT CARDS -->
+  <div class="contact-cards">
+    <!-- Email Card -->
+    <div class="contact-card">
+      <div class="card-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </div>
+      <div class="card-label">Email</div>
+      <div class="card-value">rosshedj@gmail.com</div>
+      <a href="mailto:rosshedj@gmail.com" class="card-action">Send Message →</a>
+    </div>
+
+    <!-- Phone Card -->
+    <div class="contact-card">
+      <div class="card-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </div>
+      <div class="card-label">Phone</div>
+      <div class="card-value">+63 949 797 5297</div>
+      <a href="tel:+639497975297" class="card-action">Call Me →</a>
+    </div>
+
+    <!-- Program Card -->
+    <div class="contact-card">
+      <div class="card-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        </svg>
+      </div>
+      <div class="card-label">Program</div>
+      <div class="card-value">BCPET 2201</div>
+      <div class="card-action" style="cursor: default;">Bachelor in Computer Engineering Technology</div>
+    </div>
+
+    <!-- Location Card -->
+    <div class="contact-card">
+      <div class="card-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+      </div>
+      <div class="card-label">Location</div>
+      <div class="card-value">Batangas, Philippines</div>
+      <a href="https://maps.google.com/?q=Batangas,+Philippines" target="_blank" class="card-action">View on Map →</a>
+    </div>
+  </div>
+
+  <!-- SOCIAL SECTION -->
+  <div class="social-section">
+    <h3>Follow & Connect</h3>
+    <div class="social-links">
+      <a href="https://github.com/rossbibs" target="_blank" class="social-link" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.814 0-9.752h3.554v1.381c.43-.664 1.202-1.61 2.923-1.61 2.136 0 3.74 1.395 3.74 4.393v5.588zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.71 0-.954.77-1.71 1.969-1.71 1.199 0 1.915.756 1.94 1.71 0 .952-.74 1.71-1.994 1.71zm1.676 11.597H3.662V9.555h3.351v10.897zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      </a>
+      <a href="https://instagram.com/rossh_bibs" target="_blank" class="social-link" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm4.846-10.403c0 .795.645 1.44 1.44 1.44s1.44-.645 1.44-1.44-.645-1.44-1.44-1.44-1.44.645-1.44 1.44z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- CONTACT FORM -->
+  <div style="margin-top: 60px;">
+    <h3 class="form-section" style="font-size: 1.8rem; font-weight: 700; color: #111; margin-bottom: 8px;">Send Me a Message</h3>
+    <p style="color: #666; margin-bottom: 32px; font-size: 0.95rem;">Have a question or opportunity? Fill out the form below and I'll get back to you as soon as possible.</p>
+    
+    <form id="contactForm" class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Your last name" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Write your message here..." rows="6" required></textarea>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="submit-btn">
+          <span>✉️</span> Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="footer-content">
+    <!-- Profile Section -->
+    <div class="footer-profile">
+      <div class="footer-avatar">RB</div>
+      <div class="footer-profile-info">
+        <h3>Rosshed Bibon</h3>
+        <p>BCPET</p>
+      </div>
+    </div>
+
+    <!-- Social Icons Center -->
+    <div class="footer-socials-center">
+      <a href="https://github.com/rossbibs" target="_blank" class="footer-social-icon" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
+      <a href="mailto:rosshedj@gmail.com" class="footer-social-icon" title="Email">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="footer-social-icon" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.814 0-9.752h3.554v1.381c.43-.664 1.202-1.61 2.923-1.61 2.136 0 3.74 1.395 3.74 4.393v5.588zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.71 0-.954.77-1.71 1.969-1.71 1.199 0 1.915.756 1.94 1.71 0 .952-.74 1.71-1.994 1.71zm1.676 11.597H3.662V9.555h3.351v10.897zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      </a>
+      <a href="https://instagram.com/rossh_bibs" target="_blank" class="footer-social-icon" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm4.846-10.403c0 .795.645 1.44 1.44 1.44s1.44-.645 1.44-1.44-.645-1.44-1.44-1.44-1.44.645-1.44 1.44z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Credit Section -->
+    <div class="footer-credit">
+      <p>&copy; 2026 Rosshed Bibon</p>
+      <div class="footer-credit-text">Crafted with ❤️</div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+</footer>
+
+<script>
+  const scrollToTopBtn = document.getElementById('scrollToTop');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      scrollToTopBtn.style.display = 'flex';
+    } else {
+      scrollToTopBtn.style.display = 'none';
+    }
+  });
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  scrollToTopBtn.style.display = 'none';
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Logo click to go to top or home
+    document.querySelector('.logo').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo(0, 0);
+    });
+  });
+</script>
+
+</body>
+</html>

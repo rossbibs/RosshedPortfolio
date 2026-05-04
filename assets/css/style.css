@@ -1,4 +1,3 @@
-/* RESET & VARIABLES */
 *,
 *::before,
 *::after {
@@ -40,9 +39,6 @@ body::before {
   opacity: 0.4;
 }
 
-/* ============================================
-   INTRO SPLASH SCREEN
-   ============================================ */
 .intro-screen {
   position: fixed;
   inset: 0;
@@ -127,9 +123,6 @@ body::before {
   }
 }
 
-/* ============================================
-   NAVIGATION
-   ============================================ */
 nav {
   position: fixed;
   top: 0;
@@ -204,7 +197,6 @@ nav {
   color: var(--ink) !important;
 }
 
-/* Mobile menu button */
 .nav-toggle {
   display: none;
   background: none;
@@ -214,9 +206,6 @@ nav {
   font-size: 24px;
 }
 
-/* ============================================
-   HERO SECTION
-   ============================================ */
 .hero {
   min-height: 100vh;
   display: grid;
@@ -354,9 +343,6 @@ nav {
   animation: fadeUp 0.8s 0.8s ease both;
 }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
 .btn-primary {
   background: var(--gold);
   color: var(--ink);
@@ -415,9 +401,6 @@ nav {
   transform: translateY(-2px);
 }
 
-/* ============================================
-   HERO RIGHT — Wave Section
-   ============================================ */
 .hero-right {
   background: #F5EFE6;
   position: relative;
@@ -493,7 +476,6 @@ nav {
   z-index: 5;
 }
 
-/* Decorative circles */
 .deco-circle {
   position: absolute;
   border-radius: 50%;
@@ -520,9 +502,6 @@ nav {
   animation: rotate -30s linear infinite;
 }
 
-/* ============================================
-   STATISTICS STRIP
-   ============================================ */
 .about-strip {
   background: var(--ink);
   padding: 60px;
@@ -559,9 +538,6 @@ nav {
   margin-top: 6px;
 }
 
-/* ============================================
-   GENERIC SECTIONS
-   ============================================ */
 .section {
   padding: 100px 60px;
 }
@@ -600,9 +576,6 @@ nav {
   color: var(--gold);
 }
 
-/* ============================================
-   ABOUT SECTION
-   ============================================ */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -668,9 +641,6 @@ nav {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* ============================================
-   SKILLS SECTION
-   ============================================ */
 .skills-bg {
   background: var(--cream);
 }
@@ -747,9 +717,6 @@ nav {
   text-align: right;
 }
 
-/* ============================================
-   PROJECTS SECTION
-   ============================================ */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -882,9 +849,6 @@ nav {
   color: var(--white);
 }
 
-/* ============================================
-   EDUCATION TIMELINE
-   ============================================ */
 .edu-bg {
   background: var(--navy);
 }
@@ -959,9 +923,6 @@ nav {
   max-width: 600px;
 }
 
-/* ============================================
-   CONTACT SECTION
-   ============================================ */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
@@ -1026,9 +987,6 @@ nav {
   font-weight: 500;
 }
 
-/* ============================================
-   CONTACT FORM
-   ============================================ */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -1096,9 +1054,6 @@ textarea.error {
   display: block;
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
 footer {
   background: var(--navy);
   padding: 50px 60px;
@@ -1197,10 +1152,6 @@ footer {
   background: rgba(201, 168, 76, 0.15);
   transform: translateY(-3px);
 }
-
-/* ============================================
-   CERTIFICATIONS PAGE
-   ============================================ */
 
 .certifications-section {
   background: var(--paper);
@@ -1309,9 +1260,6 @@ footer {
   text-transform: uppercase;
 }
 
-/* ============================================
-   ANIMATIONS
-   ============================================ */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -1351,11 +1299,6 @@ footer {
   }
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
-
-/* Tablet (1024px and below) */
 @media (max-width: 1024px) {
   nav {
     padding: 18px 40px;
@@ -1444,7 +1387,6 @@ footer {
   }
 }
 
-/* Mobile (640px and below) */
 @media (max-width: 640px) {
   nav {
     padding: 16px 20px;
